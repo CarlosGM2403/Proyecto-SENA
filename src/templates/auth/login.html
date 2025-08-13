@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="logo">
+    <img src="static/img/logo_icon.png" alt="Logo">
+</div>
+
+<h1 class="titulo-bienvenida">Bienvenido!</h1>
+
+    <main class="contenedor-login">
+        <div class="icono-login">
+            <i class="bi bi-person-circle"></i> 
+        </div>
+        <form>
+
+            <div class="form-floating mb-2">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Ingrese su correo electronico</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+                <label for="floatingPassword">ingrese su contraseña contraseña</label>
+            </div>
+
+            <div class="form-options">
+                <a href="{{ url_for('forgot_password') }}" class="forgot-link">Olvide mi contraseña</a>
+            </div>
+
+            <button class=" btn btn-lg btn-primary" type="submit">Ingresar</button>
+        </form>
+    </main>
+
+        <div class="planta">
+            <img src="static/img/plantaa.png" alt="planta">
+        </div>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+{% endblock %}
+
+
+
