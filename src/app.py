@@ -10,6 +10,9 @@ def login():
 def forgot_password():
     return render_template("auth/forgot_password.html")
 
+@app.route('/cambio_obligatorio')
+def cambio_obligatorio():
+    return render_template('auth/cambio_obligatorio.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
-
