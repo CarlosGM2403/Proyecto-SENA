@@ -1,3 +1,5 @@
+//Inicio Sesión
+
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("login-form");
 
@@ -17,4 +19,22 @@ document.addEventListener("DOMContentLoaded", function () {
             form.submit(); 
         }
     });
+//Olvidé mi Contraseña
+        const forgotForm = document.getElementById("forgot-form");
+        
+    if (forgotForm) {
+        forgotForm.addEventListener("submit", function (e) {
+            const email = document.getElementById("forgotEmail").value.trim();
+
+            if (!email) {
+                e.preventDefault();
+                Swal.fire({
+                    icon: "warning",
+                    title: "Campo vacío",
+                    text: "Por favor, ingrese su correo electrónico.",
+                    confirmButtonText: "Entendido"
+                });
+            }
+        });
+    }
 });
