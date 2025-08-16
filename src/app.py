@@ -8,18 +8,18 @@ def login():
     return render_template('auth/login.html')
 
 
-#Olvidé COntraseña
+#Olvidé Contraseña
 @app.route("/forgot-password", methods=["GET", "POST"])
 def forgot_password():
     if request.method == "POST":
         email = request.form.get("email")
 
-        # 🔹 Ejemplo de validación sin BD
-        if email != "usuario@ejemplo.com":
-            flash("El correo no está registrado")
-            return redirect(url_for("forgot_password"))
+        # Validación simulada
+        if email == "usuario@ejemplo.com":
+            flash("Se ha enviado un enlace de recuperación a tu correo", "success")
+        else:
+            flash("El correo no está registrado", "error")
 
-        flash("Se ha enviado un enlace de recuperación a tu correo")
         return redirect(url_for("forgot_password"))
 
     return render_template("auth/forgot_password.html")
