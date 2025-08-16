@@ -4,6 +4,7 @@
 
 {% block customCSS %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/cambio_obligatorio.css') }}">
+
 {% endblock %}
 
 
@@ -36,32 +37,34 @@
         <img src="static/img/plantaa.png" alt="planta">
     </div>
 
-    <script>
-        const form = document.getElementById('cambiarPassForm');
-        const errorDiv = document.getElementById('error');
+<script>
+    const form = document.getElementById('cambiarPassForm');
+    const errorDiv = document.getElementById('error');
 
-        form.addEventListener('submit', function(e){
-            const newPass = document.getElementById('new_password').value;
-            const confirmPass = document.getElementById('confirm_password').value;
+    form.addEventListener('submit', function(e){
+        const newPass = document.getElementById('new_password').value;
+        const confirmPass = document.getElementById('confirm_password').value;
 
-            if(newPass !== confirmPass){
-                e.preventDefault();
-                errorDiv.textContent = "Las contraseñas no coinciden";
-            } else if(newPass.length < 8){
-                e.preventDefault();
-                errorDiv.textContent = "La contraseña debe tener al menos 8 caracteres";
-            } else {
-                errorDiv.textContent = "";
-            }
-        });
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-        function togglePassword(id){
-            const input = document.getElementById(id);
-            if(input.type === "password"){
-                input.type = "text";
-            } else {
-                input.type = "password";
-            }
+        if(newPass !== confirmPass){
+            e.preventDefault();
+            errorDiv.textContent = "Las contraseñas no coinciden";
+        } else if(!passwordRegex.test(newPass)){
+            e.preventDefault();
+            errorDiv.textContent = "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un símbolo";
+        } else {
+            errorDiv.textContent = "";
         }
-    </script>
+    });
+
+    function togglePassword(id){
+        const input = document.getElementById(id);
+        if(input.type === "password"){
+            input.type = "text";
+        } else {
+            input.type = "password";
+        }
+    }
+</script>
 {% endblock %}
