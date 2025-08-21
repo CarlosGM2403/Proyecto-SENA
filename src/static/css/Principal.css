@@ -1,0 +1,134 @@
+/*estilos del body*/
+body {
+  margin: 0;
+  height: 100vh;
+  background: url("../img/fondo_principal.png") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+
+.logo {
+  position: absolute; /* La imagen se posiciona de forma absoluta*/
+  top: 50%; /* Centra verticalmente */
+  left: 40%; /* Centra horizontalmente */
+  transform: translate(-50%, -60%); /* Ajusta la posición: -50% la centra, -60% la sube un poco */
+  width: 60px; /* Ajusta el tamaño de la imagen */
+  height: auto; /* Mantiene proporciones */
+  pointer-events: none; /* Evita que bloquee clics en el botón */
+}
+
+
+
+/*botones izquierda*/
+.grupo-izquierda {
+  position: fixed;         /* Fijos en pantalla */
+  bottom: 25px;            /* Pegados abajo */
+  left: 80px;              /* Pegados a la izquierda */
+  display: flex;           /* Se muestran en fila */
+  gap: 60px;               /* Espacio entre los botones */
+}
+
+.grupo-izquierda .btn-normal {
+  padding: 10px 36px;      /* MÁS grandes: aumenta el tamaño interno */
+  border: 3px solid #636363a2; /* Borde gris */
+  border-radius: 20px;     /* Bordes más redondeados */
+  background: #0000009a;   /* Fondo negro translúcido */
+  color: #fff;             /* Texto blanco */
+  font-size: 18px;         /* Texto más grande */
+  font-weight: bold;       /* Texto más grueso */
+  cursor: pointer;         /* Cambia cursor al pasar encima */
+}
+
+/*botones derecha*/
+.grupo-derecha {
+  position: fixed;         /* Fijos en pantalla */
+  bottom: 25px;            /* Pegados abajo */
+  right: 100px;             /* Pegados a la derecha */
+  display: flex;           /* Se muestran en fila */
+  gap: 60px;               /* Espacio entre los botones */
+}
+
+.grupo-derecha .btn-normal {
+  padding: 10px 36px;      /* MÁS grandes: aumenta el tamaño interno */
+  border: 3px solid #6363639c; /* Borde gris */
+  border-radius: 20px;     /* Bordes más redondeados */
+  background: #0000009c;   /* Fondo negro translúcido */
+  color: #fff;             /* Texto blanco */
+  font-size: 18px;         /* Texto más grande */
+  font-weight: bold;       /* Texto más grueso */
+  cursor: pointer;         /* Cambia cursor al pasar encima */
+}
+
+
+.btn-wrapper {
+  position: fixed;            /* Mantiene el contenedor fijo en pantalla */
+  bottom: -120px;             /* Coloca el botón medio oculto en la parte inferior */
+  left: 50%;                  /* Centrado horizontal */
+  transform: translateX(-50%);/* Ajusta para centrar exactamente */
+  display: flex;              /* Flexbox para centrar */
+  justify-content: center;    /* Centrado horizontal */
+  align-items: center;        /* Centrado vertical */
+}
+
+.btn {
+  position: relative;         /* Para posicionar elementos hijos relativos al botón */
+  width: 220px;               /* Tamaño ancho del botón circular */
+  height: 220px;              /* Tamaño alto del botón circular */
+  border-radius: 50%;         /* Botón circular */
+  background: #1d4424;        /* Color de fondo verde oscuro */
+  color: white;               /* Texto blanco */
+  font-size: 30px;            /* Tamaño del texto */
+  font-weight: bold;          /* Texto en negrita */
+  border: 5px solid #4c9677;  /* Borde verde más claro */
+  cursor: pointer;            /* Cambia cursor a mano */
+  z-index: 2;                 /* Mantiene el botón por encima de animaciones */
+  padding-bottom: 100px;      /* Ajusta posición del texto hacia arriba */
+  transition: background 0.5s ease; /* Transición suave en hover */
+}
+
+/* Estado hover */
+.btn:hover {
+  background: #174623;  /* Un verde un poco más claro al pasar el mouse */
+}
+
+.btn:active {
+  background: #256d37;  /* Mantiene el color del hover */
+  opacity: 1;           /* Evita que se vuelva transparente */
+  transform: scale(0.97); /* Efecto de "presionado" sin perder color */
+}
+
+/* círculos detrás */
+.circle {
+  position: absolute;        /* Los coloca flotando en relación al contenedor */
+  border-radius: 50%;        /* Hace que sean redondos */
+  background: rgba(255, 255, 255, 0.466); /* Color semitransparente para el efecto de onda */
+  z-index: 1;                /* Se colocan detrás del botón */
+  animation: pulse 3s infinite ease-out; /* Animación de onda infinita */
+}
+
+.circle1 {
+  width: 220px;              /* Tamaño del primer círculo (ancho*/
+  height: 220px;             /* Tamaño del primer círculo (largo*/
+  animation-delay: 0s;       /* Empieza primero */
+}
+
+.circle2 {
+  width: 250px;              /* Tamaño del segundo círculo (ancho */
+  height: 250px;             /* Tamaño del segundo círculo (largo*/
+  animation-delay: 2.5s;     /* Empieza después del primero */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1.0);   /* mas pequeño cando comienza */
+    opacity: 0.6;            /* transparencia */
+  }
+  100% {
+    transform: scale(1.2);   /* Se expande hacia afuera */
+    opacity: 0;              /* Se desvanece */
+  }
+}
+

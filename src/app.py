@@ -30,6 +30,11 @@ def forgot_password():
 def cambio_obligatorio():
     return render_template('auth/cambio_obligatorio.html')
 
+#Pagina principal
+@app.route('/Pagina_principal')
+def Pagina_principal():
+    return render_template('auth/Principal.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
